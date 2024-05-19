@@ -1,0 +1,195 @@
+@media (prefers-color-scheme: dark) {
+    :root {
+        --user-preferred-background: #282828;
+        --user-preferred-text: #ffffff;
+        --user-preferred-hr: #ffffff15;
+        --user-preferred-separator: #ffffff35;
+        --user-preferred-gray-highlight: #8c8c8c;
+        --user-preferred-gray-underlay: #696969;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --user-preferred-background: #ffffff;
+        --user-preferred-text: #000000;
+        --user-preferred-hr: #00000015;
+        --user-preferred-separator: #00000035;
+        --user-preferred-gray-highlight: #313131;
+        --user-preferred-gray-underlay: rgb(159, 159, 159);
+    }
+}
+
+:root {
+    --background-color-light: #f2f2f3;
+    --background-color-light-rgb: rgb(242, 242, 243);
+    --background-color-dark: #000000;
+    --background-color-dark-rgb: rgb(0, 0, 0);
+    --background-color-protrude-light: #ffffff;
+    --background-color-protrude-dark: #1b1b1b;
+    --background-color-protrude-hover-light: #fafafa;
+    --background-color-protrude-hover-dark: #2a2a2a;
+    --background-color-popover-light: rgba(247, 247, 247, 0.80);
+    --background-color-popover-dark: rgba(37, 37, 37, 0.8);
+    --background-color-popover-hover-light: rgba(226, 226, 226, 0.679);
+    --background-color-popover-hover-dark: rgba(55, 55, 55, 0.85);
+    --background-accent-color-light: #1a1a1a30;
+    --background-accent-color-dark: #ffffff30;
+    --font-color-light: #010101;
+    --font-color-light-rgb: rgb(1, 1, 1);
+    --font-color-dark: #ffffff;
+    --font-color-dark-rgb: rgb(255, 255, 255);
+    --font-color-gray: #868686;
+    --border-color-light: #1616162c;
+    --border-color-dark: #b0b0b02c;
+    --featured-color-light: #981717;
+    --featured-color-dark: #e45454;
+    --featured-color-hover-light: #e45454;
+    --featured-color-hover-dark: #981717;
+    --featured-color-active-light: #986b17;
+    --featured-color-active-dark: #e45454;
+    --functional-color-light: #007AFF;
+    --functional-color-dark: #0A84FF;
+    --color-grey-light: #808080;
+    --color-grey-dark: #616161;
+    --shadow-color-light: #00000050;
+    --shadow-color-dark: #ffffff50;
+    --shadow-color-light-fewer: #00000015;
+    --shadow-color-dark-fewer: #ffffff15;
+    --color-green: #30d158;
+    --nav-color-dark: var(--background-color-dark);
+    --nav-color-light: var(--background-color-protrude-light);
+    --href-color: rgba(0, 162, 255, 0.5);
+    --highlight-color-light: #ffffff86;
+    --highlight-color-dark: #ffffffed;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: var(--background-color-dark);
+        --background-color-rgb: var(--background-color-dark-rgb);
+        --background-color-protrude: var(--background-color-protrude-dark);
+        --font-color: var(--font-color-dark);
+        --font-color-rgb: var(--font-color-dark-rgb);
+        --border-color: var(--border-color-dark);
+        --featured-color: var(--featured-color-dark);
+        --featured-color-hover: var(--featured-color-hover-dark);
+        --featured-color-active: var(--featured-color-active-dark);
+        --background-color-protrude-hover: var(--background-color-protrude-hover-dark);
+        --color-grey: var(--color-grey-dark);
+        --background-color-popover: var(--background-color-popover-dark);
+        --background-accent-color: var(--background-accent-color-dark);
+        --background-color-popover-hover: var(--background-color-popover-hover-dark);
+        --shadow-color: var(--shadow-color-dark);
+        --shadow-color-fewer: var(--shadow-color-dark-fewer);
+        --nav-color: var(--nav-color-dark);
+        --functional-color: var(--functional-color-dark);
+        --highlight-color: var(--highlight-color-dark);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-color: var(--background-color-light);
+        --background-color-rgb: var(--background-color-light-rgb);
+        --background-color-protrude: var(--background-color-protrude-light);
+        --font-color: var(--font-color-light);
+        --font-color-rgb: var(--font-color-light-rgb);
+        --border-color: var(--border-color-light);
+        --featured-color: var(--featured-color-light);
+        --featured-color-hover: var(--featured-color-hover-light);
+        --featured-color-active: var(--featured-color-active-light);
+        --background-color-protrude-hover: var(--background-color-protrude-hover-light);
+        --color-grey: var(--color-grey-light);
+        --background-color-popover: var(--background-color-popover-light);
+        --background-accent-color: var(--background-accent-color-light);
+        --background-color-popover-hover: var(--background-color-popover-hover-light);
+        --shadow-color: var(--shadow-color-light);
+        --shadow-color-fewer: var(--shadow-color-light-fewer);
+        --nav-color: var(--nav-color-light);
+        --functional-color: var(--functional-color-light);
+        --highlight-color: var(--highlight-color-light);
+    }
+}
+
+*.serif {
+    font-family: 'EB Garamond', 'Garamond', 'Times New Roman', Times, serif;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    --text-color: black;
+    background-position: center;
+    min-height: 100vh;
+    margin: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--text-color);
+}
+
+h1 {
+    font-size: min(25vh, 17vw);
+    text-align: left;
+    position: absolute !important;
+    top: 25%;
+    transform: translateY(-50%);
+    left: 2rem;
+}
+
+.animated-arrow {
+    margin-top: 1rem;
+    font-size: .9rem;
+    padding: .8rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    background: var(--user-preferred-text);
+    color: var(--user-preferred-background);
+    text-decoration: none;
+    transition: .3s;
+    user-select: none;
+    -webkit-user-drag: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+
+    img[alt="ARROW"] {
+        --size: 15px;
+        width: var(--size);
+        height: var(--size);
+        transform: translateY(10%);
+        transition: transform 0.3s;
+    }
+
+    &:hover {
+
+        filter: brightness(.98);
+
+        img[alt="ARROW"] {
+            transform: translateY(10%) translateX(20%);
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    img[alt="ARROW"] {
+        filter: invert(1);
+        -webkit-filter: invert(1);
+    }
+}
+
+.full-width-banner {
+    width: 100%;
+    background: url(/assets/header.webp);
+    background-size: contain;
+    background-position: center;
+    height: 10rem;
+}
+
+.description p {
+    color: var(--user-preferred-text);
+}

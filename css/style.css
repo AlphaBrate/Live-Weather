@@ -1,0 +1,330 @@
+:root {
+    --user-preferred-background: #ffffff;
+    --user-preferred-text: #000000;
+    --user-preferred-hr: #00000015;
+    --user-preferred-separator: #00000035;
+    --user-preferred-gray-highlight: #313131;
+    --user-preferred-gray-underlay: rgb(159, 159, 159);
+}
+
+input[type="text"],
+input[type="password"] {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    outline: none;
+    background: var(--user-preferred-background);
+    padding: 7px 17px;
+    border-radius: 7px;
+    font-size: 1rem;
+    width: calc(.5 * 70vw);
+    max-width: 200px;
+    color: var(--user-preferred-text);
+}
+
+* {
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    touch-action: manipulation;
+    transition: .3s;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    width: 100%;
+    height: calc(100% + env(safe-area-inset-top));
+    overflow: hidden;
+}
+
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+*::selection {
+    background: rgba(75, 213, 255, 0.168);
+}
+
+.clouds {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.cloud {
+    position: absolute;
+    background-position: center;
+    /* Fitting the size of .cloud */
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    filter: drop-shadow(0 0 10px #00000010);
+}
+
+.star {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    height: 2px;
+    width: 2px;
+    z-index: -2;
+}
+
+.moon {
+    --size: 150px;
+
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: var(--size);
+    width: var(--size);
+    z-index: -1;
+
+    opacity: 1;
+
+    filter: brightness(.8);
+    -webkit-filter: brightness(.8);
+
+    top: 5%;
+    left: 150px;
+
+    mix-blend-mode: lighten;
+
+}
+
+.sun {
+
+    --rotate-angle: 25deg;
+    --size: 2;
+
+    position: absolute;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    height: 42px;
+    width: 40px;
+    box-shadow: 0 0 36px 40px white;
+    transform: rotate(var(--rotate-angle)) scale(var(--size));
+    top: 6%;
+    left: 60%;
+
+    z-index: -2;
+
+    &::after {
+        content: '';
+
+        background: radial-gradient(50.18% 50.18% at 50% 49.82%, rgba(255, 0, 0, 0) 32.35%, rgba(255, 165, 0, 0.024) 54.35%, rgba(255, 255, 0, 0.06) 61.85%, rgba(0, 224, 90, 0.084) 69.35%, rgba(0, 0, 255, 0.024) 83.85%, rgba(255, 0, 255, 0) 99.98%);
+
+
+        height: 400px;
+        width: 300px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(var(--rotate-angle));
+        z-index: 11;
+    }
+
+    &::before {
+        content: '';
+
+        background: url(/assets/sun/light_ball.1.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        /* W/H = 0.39940387481 */
+        --ratio: 0.39940387481;
+        --height: 100px;
+        height: var(--height);
+        width: calc(var(--height) * var(--ratio));
+
+        -webkit-filter: blur(1px) !important;
+        filter: blur(1px) !important;
+        z-index: 11;
+
+        position: absolute;
+        top: 300%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(var(--rotate-angle));
+
+        opacity: 0.7;
+    }
+}
+
+@keyframes cloud-right {
+    0% {
+        transform: translateX(200%);
+    }
+
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+@keyframes cloud-left {
+    0% {
+        transform: translateX(-200%);
+    }
+
+    100% {
+        transform: translateX(200%);
+    }
+}
+
+.precipitation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.rain-drop {
+    --rain-height: 10px;
+    top: calc(-1 * var(--rain-height));
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.15);
+    height: var(--rain-height);
+    width: 2px;
+    z-index: -4;
+    animation-name: rain-fall;
+    animation-timing-function: linear;
+}
+
+@keyframes rain-fall {
+    0% {
+        transform: translateY(-100vh);
+    }
+
+    100% {
+        transform: translateY(calc(100vh + 20px));
+    }
+}
+
+.location {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --color: rgb(255, 255, 255);
+    color: var(--color);
+
+    font-size: 14px;
+    white-space: nowrap;
+    margin-bottom: env(safe-area-inset-bottom);
+
+    svg,
+    path {
+        height: 16px;
+        width: 16px;
+    }
+
+    svg {
+        transform: translateY(3px);
+    }
+
+    * {
+        fill: var(--color);
+        stroke: transparent;
+    }
+
+    a {
+        color: var(--color);
+    }
+
+    &.error {
+        display: flex;
+        font-size: 1.4rem;
+        font-weight: 700;
+        padding-bottom: 2rem;
+
+        svg {
+            height: 5.4rem;
+            width: 5.4rem;
+            transform: translateY(-7px);
+        }
+    }
+
+}
+
+.api {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+
+    display: none;
+
+    a {
+        color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+.flash {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    position: fixed;
+    background: radial-gradient(100% 100% at 50.08% 100%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 53.44%, #ffffffa7 100%);
+    z-index: 2;
+    animation: flash 1.5s infinite;
+}
+
+.thunder {
+    position: fixed;
+    max-width: 0;
+    --color: white;
+    background: var(--color);
+    height: 6px;
+    box-shadow: 0 0 10px 5px var(--color);
+
+    animation: thunder .15s;
+
+    z-index: -2;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+@keyframes thunder {
+    from {
+        max-width: 0;
+    }
+
+    to {
+        max-width: 250px;
+    }
+}
+
+@keyframes flash {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

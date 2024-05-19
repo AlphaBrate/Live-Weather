@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="Live Weather Wallpaper">
+    <title>Settings | Live Weather</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/settings.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+</head>
+
+<body>
+    <div class="settings">
+        <div class="page" id="about" style="display: block;">
+            <h2 style="margin-bottom: .1rem;">ABOUT THIS PROJECT</h2>
+            <a style="color: #ffffff82;; margin-left: 1rem;"
+                href="https://github.com/alphabrate/live-weather">AlphaBrate/Live-Weather</a>
+            <p class="quote">This is a open source project built by <a
+                    href="https://alphabrate.github.io/">AlphaBrate</a>
+                under the <a href="https://alphabrate.github.io/about/apel">APEL</a> License.</p>
+            </p>
+            <p>
+                Lead Developer: <a href="https://chutm.github.io/">ReTrn Chu</a>
+            </p>
+            <p>
+                Our project draws inspiration from the Live Weather Wallpaper feature found exclusively on iOS.
+                Recognizing its absence on other platforms, we took the initiative to bring this immersive experience to
+                the web.
+            </p>
+            <p>By using this project, you agree to our
+                <span onclick="show('TC')" class="underlined" style="cursor: pointer;">Terms & Conditions</span>.
+            </p>
+        </div>
+        <div class="page" id="api">
+            <h2>Use Your Own API Key.</h2>
+            <p class="quote">As we don't charge users and can't cover high-traffic API costs, we suggest using your own
+                API key if available. Rest assured, your key will be securely stored in your browser's local storage and
+                won't be shared with anyone, including us.</p>
+            </p>
+            <p>
+                We use a free <a href="https://geocode.maps.co/">geocoding API</a> service which is provided by <a
+                    href="https://maps.co">Map Maker</a>.
+            </p>
+            <p>
+                Visit <a href="https://geocode.maps.co/">https://geocode.maps.co/</a>
+                and tap on <b>Free API Key</b>. Please enter your email address. You will then receive a confirmation
+                email. After you have confirmed your email address, they will send you your API key in a separate email.
+                Last, enter your API key in the <b>Geocode API Key</b> below.
+            </p>
+            <input type="text" id="geocode" placeholder="Geocode API Key" style="width: 100%;">
+            <p id="vt">.</p>
+
+            <p class="quote">
+                If you're using third-party services like Wallpaper Engine to display your desktop wallpaper, you might
+                encounter issues with location services not functioning as anticipated. In such situations, you have the
+                option to manually enter your location.
+            </p>
+            <p>
+                Visit <a href="https://live-weather-background.web.app/settings?tab=api">https://live-weather-background.web.app/settings?tap=api</a>
+                in your system's default browser press <b>Get Your Location</b>, and then copy the location data into the <b>Location</b> field below.
+            </p>
+            <button onclick="Location()">Get Your Location</button>
+            <br>
+            <br>
+            <input type="text" id="Loc" placeholder="Location" style="width: 100%;">
+            <p id="lt">.</p>
+        </div>
+        <div class="page" id="data">
+            <h2>HANDLING YOUR DATA</h2>
+            <p class="quote">
+                We do not retain any of your data on our server. Your location is exclusively used for the purpose of
+                retrieving weather data.
+            </p>
+            <p>
+                We collect the following sensitive information from you:
+                <br>
+                Your geographical location (specified by Latitude and Longitude);
+                <br>
+                Your API Key, but only if you opt to provide one.
+            </p>
+            <p>
+                All third-party services we utilize operate under the Hypertext Transfer Protocol Secure (HTTPS),
+                fortified with SSL/TLS encryption. This guarantees the security and privacy of your data during
+                transmission over the internet.
+            </p>
+        </div>
+        <div class="page" id="TC">
+            <h2>TERMS & CONDITIONS</h2>
+            <p class="quote">
+                Please read these Terms and Conditions carefully before using or reproducing any part of this project.
+            </p>
+            <ul>
+                <li>You are granted the privilege to utilize this project for any purpose you deem fit. However, it is
+                    mandatory that your usage aligns with the stipulations outlined in the APEL License. Any deviation
+                    from these stipulations is not permitted.</li>
+                <li>It is important to note that the sale of this project, or any part thereof, is strictly prohibited.
+                    This prohibition extends to all components of the project, irrespective of their nature or function
+                    within the project.</li>
+                <li>We wish to make it clear that we do not offer any form of warranty or guarantee in relation to this
+                    project. This includes, but is not limited to, warranties of fitness for a particular purpose,
+                    warranties of merchantability, and warranties of non-infringement.</li>
+                <li>We expressly disclaim any liability for damages, losses, or harm that may arise from the use of this
+                    project. This includes, but is not limited to, direct, indirect, incidental, special, consequential,
+                    or exemplary damages.</li>
+                <li>The presence of this project on your device does not imply any form of association, partnership,
+                    endorsement, or affiliation with us. Any such assumption or interpretation is incorrect and we
+                    disclaim any liability arising from such assumptions or interpretations.</li>
+                <li>The data provided by this project is intended to be informative and helpful. However, we cannot
+                    guarantee the accuracy of this data at all times. We disclaim any responsibility for any
+                    inaccuracies, errors, or omissions in the data provided.</li>
+                <li>We reserve the right, at our sole discretion, to modify, amend, or revise these terms and conditions
+                    at any time without prior notice. It is your responsibility to review these terms and conditions
+                    periodically to ensure you are aware of any changes. Your continued use of the project following the
+                    posting of changes to these terms and conditions will constitute your acceptance of those changes.
+                </li>
+                <li>The privacy policy of this project is shown in the HANDLING YOUR DATA section.</li>
+                </li>
+            </ul>
+
+
+
+        </div>
+    </div>
+    <div class="btm">
+        <span class="e active" onclick="show('about')" id="b-about">
+            <icon data-icon="bookmark"></icon>
+        </span>
+        <span class="e" onclick="show('api')" id="b-api">
+            <icon data-icon="cloud"></icon>
+        </span>
+        <span class="e" onclick="show('data')" id="b-data">
+            <icon data-icon="shield"></icon>
+        </span>
+    </div>
+    <script src="/js/shared-lib.js"></script>
+    <script src="/js/weather.js"></script>
+    <script src="/js/settings.js"></script>
+</body>
+
+</html>

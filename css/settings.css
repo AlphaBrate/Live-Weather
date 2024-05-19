@@ -1,0 +1,140 @@
+body {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    width: calc(90% - 4rem);
+    max-width: 600px;
+    max-height: 50vh;
+    overflow: scroll;
+    padding: 2rem;
+    backdrop-filter: blur(10px) brightness(0.95) saturate(1.5);
+    -webkit-backdrop-filter: blur(10px) brightness(0.95) saturate(1.5);
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 17px;
+    font-family: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    &,
+    * {
+        user-select: text;
+        -webkit-touch-callout: text;
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        color: white;
+        position: relative;
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.quote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -.7rem;
+    height: 105%;
+    width: 2px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.page {
+    animation: page .5s;
+    display: none;
+}
+
+@keyframes page {
+    0% {
+        transform: translateY(10%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.btm {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: .8rem 4rem;
+    padding-bottom: max(.8rem, env(safe-area-inset-bottom));
+    --size: 2.2rem;
+    backdrop-filter: blur(10px) brightness(1.01);
+    -webkit-backdrop-filter: blur(10px) brightness(1.01);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+    svg,
+    path {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: var(--size);
+        width: var(--size);
+        stroke: rgba(255, 255, 255, 0.67);
+        fill: transparent;
+        transition: 0.1s;
+    }
+
+    .active {
+
+        svg,
+        path {
+            fill: white;
+            stroke: white;
+        }
+    }
+}
+
+button {
+    margin-top: 1rem;
+    font-size: .9rem;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    background: white !important;
+    color: black !important;
+    text-decoration: none;
+    transition: .3s;
+    user-select: none;
+    -webkit-user-drag: none;
+}

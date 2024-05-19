@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="Live Weather Wallpaper">
+    <title>Live Weather</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+</head>
+<body>
+    <div class="clouds"></div>
+    <div class="stars"></div>
+    <div class="api">
+        Our API is currently down. Enter your own API in <a href="/settings/">settings</a>.
+    </div>
+    <div class="location">
+        <icon data-icon="navigationTopRight"></icon>
+        Accessing Your Location for Weather Data.
+    </div>
+    <!-- <div class="flash"></div> -->
+    <script src="/js/shared-lib.js"></script>
+    <script src="/js/ua-parser.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/weather.js"></script>
+</body>
+</html>
