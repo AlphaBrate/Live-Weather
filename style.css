@@ -193,3 +193,14 @@ h1 {
 .description p {
     color: var(--user-preferred-text);
 }
+
+.tb {
+    position: absolute;
+    background: rgb(255, 255, 82);
+    color: black;
+    width: calc(100% - 14px);
+    text-align: center;
+    padding: 7px;
+    padding-top: 12px;
+    padding-bottom: 11px;
+}

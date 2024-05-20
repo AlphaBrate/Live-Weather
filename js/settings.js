@@ -96,7 +96,8 @@ function Location() {
         navigator.geolocation.getCurrentPosition((position) => {
             $('#Loc').value = `${position.coords.latitude}, ${position.coords.longitude}`;
             $('#lt').innerText = '.';
-        }, () => {
+        }, (e) => {
+            console.log(e);
             $('#lt').innerText = 'Permission Denied, enable location services and try again.';
         });
     }
@@ -112,7 +113,7 @@ $('#Loc').addEventListener('input', () => {
     if (loc.length < 1) {
         $('#lt').innerHTML = 'Location Cleared';
         // set to localstorage>place
-        localStorage.setItem('place', '');
+        localStorage.setItem('place', void 0);
         return;
     }
     $('#lt').innerText = 'Verifying Location...';

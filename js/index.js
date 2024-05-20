@@ -87,9 +87,11 @@ function F(position) {
             });
 
             fetchApi('weather', 'HK').then(data => {
-                if (data.uvindex.data[0].value < 4 && weather.condition == 'clear') {
-                    weather.condition = 'cloudy';
-                }
+                try {
+                    if (data.uvindex.data[0].value < 4 && weather.condition == 'clear') {
+                        weather.condition = 'cloudy';
+                    }
+                } catch { }
                 data.rainfall.data.forEach((rainfall) => {
                     if (rainfall.place == user.district.replace('and', '&')) {
                         if (rainfall.max > 0) {
@@ -140,6 +142,7 @@ if ('geolocation' in navigator) {
             F(position);
             return;
         } else {
+            $('.location').style.transition = 'none';
             $('.location').innerHTML = `
         <icon data-icon="pin"></icon>
         <span>

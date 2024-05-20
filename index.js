@@ -90,9 +90,6 @@ const resize_init = () => {
     } catch { }
 
     try {
-        document.querySelector('.words.lowerright').style.opacity = 1
-        document.querySelector('.words.lowerright').style.top = document.querySelector('.words.upperleft').clientHeight + 'px'
-
         let not_desktop = window.innerWidth < 1024
 
         if (not_desktop) {
@@ -105,12 +102,6 @@ const resize_init = () => {
 
                 element.classList.remove('reversed-in-mobile')
                 element.classList.add('reversed-in-desktop')
-            });
-
-            let nowrap_on_mobile = document.querySelectorAll('.nowrap-on-desktop')
-
-            nowrap_on_mobile.forEach((element) => {
-                element.style.whiteSpace = 'normal'
             });
 
         }
@@ -186,3 +177,37 @@ window.addEventListener('resize', resize_init)
 window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
     randomColor()
 })
+
+// get the background, the top, and the bottom colors
+function getColors(bg) {
+    let colors = bg.match(/rgb\((\d+), (\d+), (\d+)\)/g)
+    let top = colors[0].match(/\d+/g)
+    let bottom = colors[1].match(/\d+/g)
+    return [top, bottom]
+}
+
+var scroll_function = () => {
+    try {
+        let scroll = window.scrollY
+        let docHeight = document.body.clientHeight
+        let colors = getColors($('body').style.background)
+        let from = colors[1]
+        let to = colors[0]
+        from.forEach((e, i) => from[i] = parseInt(e))
+        to.forEach((e, i) => to[i] = parseInt(e))
+        let percent = 1 - (scroll / docHeight)
+        let color = []
+        for (var i = 0; i < 3; i++) {
+            color.push(from[i] + (to[i] - from[i]) * percent)
+        }
+        
+        document.querySelector('meta[name="theme-color"]').content = `rgb(${color[0]}, ${color[1]}, ${color[2]})`
+    } catch {
+        try { document.querySelector('meta[name="theme-color"]').content = `rgb(${to.join(', ')})` }
+        catch { }
+    }
+}
+
+scroll_function();
+
+window.addEventListener('scroll', scroll_function)
